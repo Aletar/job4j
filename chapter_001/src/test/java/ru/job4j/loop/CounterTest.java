@@ -8,7 +8,6 @@ public class CounterTest {
 
     @Test
     public void whenSumEvenNumbersFromOneToTenThenThirty() {
-
         Counter counter = new Counter();
         int sum = counter.add(1, 10);
         assertThat(sum, is(30));
@@ -16,7 +15,6 @@ public class CounterTest {
 
     @Test
     public void whenSumEvenNumbersFromOneToOne() {
-
         Counter counter = new Counter();
         int sum = counter.add(1, 1);
         assertThat(sum, is(0));
@@ -24,7 +22,6 @@ public class CounterTest {
 
     @Test
     public void whenSumEvenNumbersFromOneToTwo() {
-
         Counter counter = new Counter();
         int sum = counter.add(1, 2);
         assertThat(sum, is(2));
