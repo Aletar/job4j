@@ -14,4 +14,19 @@ public class ArrayChar {
         }
         return result;
     }
+
+    public static boolean endsWith(char[] word, char[] post) {
+        if (word.length < post.length) {
+            return false;
+        }
+        boolean result = true;
+        for (int index = 0; index < post.length; index++) {
+            if (word[word.length - post.length + index] != post[index]) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
 }

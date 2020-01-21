@@ -22,10 +22,35 @@ public class ArrayCharTest {
     }
 
     @Test
-    public void whenStartPrefixBigerThanWordThenTrue() {
+    public void whenPrefixBigerThanWordThenFalse() {
         char[] word = {'H', 'e'};
         char[] pref = {'H', 'e', 'l', 'l', 'o'};
         boolean result = ArrayChar.startsWith(word, pref);
         assertThat(result, is(false));
     }
+
+    @Test
+    public void whenEndWithPostfixThenTrue() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'l', 'o'};
+        boolean result = ArrayChar.endsWith(word, post);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void whenNotEndWithPostfixThenFalse() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'l', 'a'};
+        boolean result = ArrayChar.endsWith(word, post);
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void whenPostfixBigerThanWordThenFalse() {
+        char[] word = {'H', 'e'};
+        char[] post = {'H', 'e', 'l', 'l', 'o'};
+        boolean result = ArrayChar.endsWith(word, post);
+        assertThat(result, is(false));
+    }
+
 }
