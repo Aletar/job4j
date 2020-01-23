@@ -15,8 +15,9 @@ public class Defragment {
                     tmpCell = array[tmpIndex];
                     array[tmpIndex] = array[index];
                     array[index] = tmpCell;
+                } else {
+                    break;
                 }
-                else break;
             }
             System.out.print(array[index] + " ");
         }

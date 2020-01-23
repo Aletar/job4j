@@ -22,7 +22,7 @@ public class DefragmentTest {
     }
 
     @Test
-    public void AllNull() {
+    public void allNull() {
         String[] input = {null, null, null, null, null, null, null};
         String[] compressed = Defragment.compress(input);
         String[] expected = {null, null, null, null, null, null, null};
@@ -30,7 +30,7 @@ public class DefragmentTest {
     }
 
     @Test
-    public void AllNotNull() {
+    public void allNotNull() {
         String[] input = {"I", "very", "very", "very", "wanna", "be", "compressed"};
         String[] compressed = Defragment.compress(input);
         String[] expected = {"I", "very", "very", "very", "wanna", "be", "compressed"};
@@ -38,7 +38,7 @@ public class DefragmentTest {
     }
 
     @Test
-    public void FirstThreeNull() {
+    public void firstThreeNull() {
         String[] input = {null, null, null, "I", "wanna", "be", "compressed"};
         String[] compressed = Defragment.compress(input);
         String[] expected = {"I", "wanna", "be", "compressed", null, null, null};

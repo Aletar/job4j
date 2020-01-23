@@ -5,7 +5,7 @@ public class Mortgage {
         int year = 0;
         while (amount > 0) {
             year++;
-            amount = (int)Math.round(amount * (1 + percent / 100) - salary);
+            amount = (int) Math.round(amount * (1 + percent / 100) - salary);
         }
         return year;
     }
