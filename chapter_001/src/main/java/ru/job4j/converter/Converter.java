@@ -18,7 +18,6 @@ public class Converter {
     }
 
     public static void main(String[] args) {
-
         int in, expected, out;
         boolean passed;
 
@@ -46,5 +45,4 @@ public class Converter {
         passed = expected == out;
         System.out.println("5 dollars are 300 rubles. Test result: " + passed);
     }
-
 }
