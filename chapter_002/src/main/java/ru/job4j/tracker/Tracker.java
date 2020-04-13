@@ -39,7 +39,7 @@ public class Tracker {
      * @return массив Item.
      */
     public Item[] findAll() {
-        return items;
+        return Arrays.copyOf(items, position);
     }
 
     /**
