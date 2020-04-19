@@ -72,4 +72,21 @@ public class Tracker {
         }
         return null;
     }
+
+    public int indexById(String id) {
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
+    public void deleteByIndex(int index) {
+        for (int i = index; i < position; i++) {
+            items[i] = items[i + 1];
+        }
+        position = position - 1;
+    }
+
 }
