@@ -19,19 +19,20 @@ public class StartUI {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
                 for (int i = 0; i < items.length; i++) {
-                    System.out.println("id: " + items[i].getId() + ", name: " + items[i].getName());
+                    System.out.println(items[i].toString());
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
                 System.out.print("Enter id: ");
                 String id = scanner.nextLine();
-                Item item = tracker.findById(id);
-                if (item == null) {
+                int index = tracker.indexById(id);
+                if (index == -1) {
                     System.out.println("Item not found by id: " + id);
                 } else {
                     System.out.print("Enter new name: ");
                     String name = scanner.nextLine();
-                    item.setName(name);
+                    Item item = new Item(name);
+                    tracker.replace(index, item);
                     System.out.print("Item changed");
                 }
             } else if (select == 3) {
@@ -53,7 +54,7 @@ public class StartUI {
                 if (item == null) {
                     System.out.println("Item not found by id: " + id);
                 } else {
-                    System.out.println("id: " + item.getId() + ", name: " + item.getName());
+                    System.out.println(item.toString());
                 }
 
             } else if (select == 5) {
@@ -65,7 +66,7 @@ public class StartUI {
                     System.out.println("Items not found name: " + name);
                 } else {
                     for (int i = 0; i < items.length; i++) {
-                        System.out.println("id: " + items[i].getId() + ", name: " + items[i].getName());
+                        System.out.println(items[i].toString());
                     }
                 }
             } else if (select == 6) {

@@ -89,4 +89,9 @@ public class Tracker {
         position = position - 1;
     }
 
+    public void replace(int index, Item newItem) {
+        newItem.setId(generateId());
+        items[index] = newItem;
+    }
+
 }
