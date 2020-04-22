@@ -15,33 +15,29 @@ public class StartUI {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i].toString());
+            System.out.println(items[i]);
         }
     }
 
     public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
         String id = input.askStr("Enter id: ");
-        int index = tracker.indexById(id);
-        if (index == -1) {
-            System.out.println("Item not found by id: " + id);
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Item changed");
         } else {
-            String name = input.askStr("Enter new name: ");
-            Item item = new Item(name);
-            tracker.replace(index, item);
-            System.out.print("Item changed");
+            System.out.println("Item not found by id: " + id);
         }
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         String id = input.askStr("Enter id: ");
-        int index = tracker.indexById(id);
-        if (index == -1) {
-            System.out.println("Item not found by id: " + id);
+        if (tracker.delete(id)) {
+            System.out.println("Item deleted");
         } else {
-            tracker.deleteByIndex(index);
-            System.out.print("Item deleted");
+            System.out.println("Item not found by id: " + id);
         }
     }
 
@@ -52,7 +48,7 @@ public class StartUI {
         if (item == null) {
             System.out.println("Item not found by id: " + id);
         } else {
-            System.out.println(item.toString());
+            System.out.println(item);
         }
     }
 
@@ -64,7 +60,7 @@ public class StartUI {
             System.out.println("Items not found name: " + name);
         } else {
             for (int i = 0; i < items.length; i++) {
-                System.out.println(items[i].toString());
+                System.out.println(items[i]);
             }
         }
     }

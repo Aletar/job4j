@@ -65,15 +65,11 @@ public class Tracker {
      * @return Item.
      */
     public Item findById(String id) {
-        for (int index = 0; index < position; index++) {
-            if (items[index].getId().equals(id)) {
-                return items[index];
-            }
-        }
-        return null;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
     }
 
-    public int indexById(String id) {
+    public int indexOf(String id) {
         for (int index = 0; index < position; index++) {
             if (items[index].getId().equals(id)) {
                 return index;
@@ -82,16 +78,24 @@ public class Tracker {
         return -1;
     }
 
-    public void deleteByIndex(int index) {
-        for (int i = index; i < position; i++) {
-            items[i] = items[i + 1];
+    public boolean delete(String id) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
         }
-        position = position - 1;
+        System.arraycopy(items, index + 1, items, index,  items.length - index - 1);
+        position--;
+        return true;
     }
 
-    public void replace(int index, Item newItem) {
+    public boolean replace(String id, Item newItem) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        }
         newItem.setId(generateId());
         items[index] = newItem;
+        return true;
     }
 
 }
