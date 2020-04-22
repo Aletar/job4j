@@ -96,7 +96,6 @@ public class Tracker {
             System.out.println("Item not found by id: " + id);
             return false;
         }
-        newItem.setId(generateId());
         items[index] = newItem;
         System.out.println("Item changed");
         return true;
