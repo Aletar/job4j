@@ -81,20 +81,24 @@ public class Tracker {
     public boolean delete(String id) {
         int index = indexOf(id);
         if (index == -1) {
+            System.out.println("Item not found by id: " + id);
             return false;
         }
         System.arraycopy(items, index + 1, items, index,  items.length - index - 1);
         position--;
+        System.out.println("Item deleted");
         return true;
     }
 
     public boolean replace(String id, Item newItem) {
         int index = indexOf(id);
         if (index == -1) {
+            System.out.println("Item not found by id: " + id);
             return false;
         }
         newItem.setId(generateId());
         items[index] = newItem;
+        System.out.println("Item changed");
         return true;
     }
 
