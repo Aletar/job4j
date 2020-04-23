@@ -24,14 +24,17 @@ public class StartUI {
         String id = input.askStr("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        item.setId(id);
-        tracker.replace(id, item);
+        if (tracker.replace(id, item)) {
+            System.out.println("Item changed");
+        }
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         String id = input.askStr("Enter id: ");
-        tracker.delete(id);
+        if (tracker.delete(id)) {
+            System.out.println("Item deleted");
+        }
     }
 
     public static void findItemById(Input input, Tracker tracker) {

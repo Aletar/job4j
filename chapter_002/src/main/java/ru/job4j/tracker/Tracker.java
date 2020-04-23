@@ -86,7 +86,6 @@ public class Tracker {
         }
         System.arraycopy(items, index + 1, items, index,  items.length - index - 1);
         position--;
-        System.out.println("Item deleted");
         return true;
     }
 
@@ -96,8 +95,8 @@ public class Tracker {
             System.out.println("Item not found by id: " + id);
             return false;
         }
+        newItem.setId(id);
         items[index] = newItem;
-        System.out.println("Item changed");
         return true;
     }
 
