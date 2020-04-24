@@ -26,6 +26,8 @@ public class StartUI {
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
             System.out.println("Item changed");
+        } else {
+            System.out.println("Item not found by id: " + id);
         }
     }
 
@@ -34,6 +36,8 @@ public class StartUI {
         String id = input.askStr("Enter id: ");
         if (tracker.delete(id)) {
             System.out.println("Item deleted");
+        } else {
+            System.out.println("Item not found by id: " + id);
         }
     }
 
