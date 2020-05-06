@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.ArrayList;
 
 import static org.hamcrest.core.Is.is;
@@ -53,7 +54,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        ArrayList<UserAction> actions = new ArrayList<UserAction>();
+        List<UserAction> actions = new ArrayList<UserAction>();
         actions.add(action);
         new StartUI().init(input, new Tracker(), actions);
         assertThat(action.isCall(), is(true));

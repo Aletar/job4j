@@ -8,7 +8,7 @@ public class Tracker {
     /**
      * Массив для хранения заявок.
      */
-    private final ArrayList<Item> items = new ArrayList<Item>();
+    private final List<Item> items = new ArrayList<Item>();
 
     /**
      * Метод добавления заявки в хранилище
