@@ -67,22 +67,33 @@ public class Tracker {
         return null;
     }
 
+    public int indexOf(String id) {
+        int index = -1;
+        for (Item item: items) {
+            index++;
+            if (item.getId().equals(id)) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
     public boolean delete(String id) {
-        Item item = findById(id);
-        if (item == null) {
+        int index = indexOf(id);
+        if (index == -1) {
             return false;
         }
-        items.remove(item);
+        items.remove(index);
         return true;
     }
 
     public boolean replace(String id, Item newItem) {
-        Item item = findById(id);
-        if (item == null) {
+        int index = indexOf(id);
+        if (index == -1) {
             return false;
         }
-        newItem.setId(id);
-        items.set(items.indexOf(item), newItem);
+        newItem.setId(generateId());
+        items.set(index, newItem);
         return true;
     }
 
