@@ -32,8 +32,8 @@ public class StartUITest {
         };
         UserAction action = new ReplaceAction();
         action.execute(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("replaced item"));
+        Item replaced = tracker.findByName("replaced item").get(0);
+        assertNotNull(replaced);
     }
 
     @Test
