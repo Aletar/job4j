@@ -1,9 +1,6 @@
-# job4j
+[![Build Status](https://travis-ci.org/Aletar/job4j.svg?branch=master)](https://travis-ci.org/Aletar/job4j)
+[![codecov](https://codecov.io/gh/Aletar/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/Aletar/job4j)
 
-Описание проекта по курсу job4j
+# Job4j
 
-В курсе производилась работа с веткамы git.
-
-Изменения по задаче "Ветки в IDEA [#211683]"
-
-Объединение зафиксированных изменений
+Курсу job4j
