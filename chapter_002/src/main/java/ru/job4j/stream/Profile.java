@@ -10,7 +10,8 @@ public class Profile {
         this.address = address;
     }
 
-    public static List<Address> collect(List<Profile> profiles) {
-        return profiles.stream().map(profile -> profile.address).sorted(new AddressAscByCity()).distinct().collect(Collectors.toList());
+    public Address getAddress() {
+        return address;
     }
+
 }

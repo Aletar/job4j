@@ -15,7 +15,7 @@ public class ProfileTest {
                 new Profile(new Address("Москва", "Ленина", 1, 1)),
                 new Profile(new Address("Омск", "Ленина", 10, 12)));
 
-        Assert.assertEquals(Profile.collect(profiles), List.of(
+        Assert.assertEquals(Profiles.collect(profiles), List.of(
                 new Address("Москва", "Ленина", 1, 1),
                 new Address("Москва", "Дзержинского", 13, 7),
                 new Address("Омск", "Ленина", 10, 12),
