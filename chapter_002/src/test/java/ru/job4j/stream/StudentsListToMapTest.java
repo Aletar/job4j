@@ -14,6 +14,7 @@ public class StudentsListToMapTest {
     public void whenStudentInMap() {
         List<Student> students = List.of(
                 new Student("Иванов", 78),
+                new Student("Сидоров", 22),
                 new Student("Петров", 54),
                 new Student("Сидоров", 99),
                 new Student("Зайцев", 68));
