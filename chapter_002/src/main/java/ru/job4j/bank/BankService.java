@@ -1,10 +1,6 @@
 package ru.job4j.bank;
 
-import java.lang.invoke.LambdaMetafactory;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -28,13 +24,14 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
+
         List<User> usersList = new ArrayList(users.keySet());
 
-        int idx = usersList.indexOf(new User(passport, ""));
-        if (idx == -1) {
-            return null;
-        }
-        return usersList.get(idx);
+        return usersList.stream()
+                .filter(user -> user.equals(new User(passport, "")))
+                .findAny()
+                .orElse(null);
+
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -45,12 +42,11 @@ public class BankService {
         }
 
         List<Account> userAccounts = users.get(user);
-        int idx = userAccounts.indexOf(new Account(requisite, 0));
-        if (idx == -1) {
-            return null;
-        }
 
-        return userAccounts.get(idx);
+        return userAccounts.stream()
+                .filter(account -> account.equals(new Account(requisite, 0)))
+                .findAny()
+                .orElse(null);
 
     }
 
